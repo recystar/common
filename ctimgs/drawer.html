@@ -1,0 +1,99 @@
+<!--
+	声明文档类型:html 符合W3C统一标准规范
+	为什么要做这个声明？不做这个声明有什么影响？
+	每个浏览器对html,css,js都有不同的编译模式
+-->
+<!doctype html>
+<html><!--超文本标记语言 人-->
+	<head><!--头部 规定一些信息(提供给浏览器识别) 用户看不到 非可视化标签-->
+		<meta charset="utf-8"><!--字符编码:utf-8国际编码 gbk gb2312 中文编码-->
+		<!--网页文档三要素-->
+		<title>抽屉式图片展示效果</title>
+		<meta name="keywords" content="关键词1,关键词2">
+		<meta name="description" content="描述:对网页内容的大概介绍">
+		<style>/*css样式*/
+			
+			*{
+				margin:0px;/*外边距*/
+				padding:0px;/*内边距*/
+			}
+			body{
+				background:url("images/bg.jpg");
+				background-position:center top;
+			}
+			#box{
+				width:1090px;
+				height:430px;
+				margin:170px auto;
+				overflow:hidden;
+			}
+			#box ul li{
+				list-style:none;
+				width:100px;
+				height:430px;
+				float:left;
+			}
+			#box ul li div{
+				width:76px;
+				height:406px;
+				background:rgba(0,0,0,.5);
+				padding:24px 0px 0px 24px;
+			}
+			#box ul li div p{
+				font-size:12px;
+				width:12px;
+				color:#fff;
+				float:left;
+				text-align:center;
+			}
+			#box ul li div p.p1{
+				margin-right:20px;
+			}
+			#box ul li div p.p2{
+				font-weight:bold;
+			}
+		</style>
+	</head>
+	<body>
+		<div id="box">
+			<ul>
+				<li style="background-image:url(images/1.jpg)">
+					<div>
+						<p class="p1">作者</br>:默默的墨墨</p>
+						<p class="p2">我的个人拉萨之旅丨丨故事之城</p>
+					</div>
+				</li>
+				<li style="background-image:url(images/2.jpg)">
+					<div>
+						<p class="p1">作者</br>:美丽的天空</p>
+						<p class="p2">拥抱绝美的戈壁丨丨倾听响沙的乐奏</p>
+					</div>
+				</li>
+				<li style="background-image:url(images/3.jpg)">
+					<div>
+						<p class="p1">作者</br>:默默的墨墨</p>
+						<p class="p2">我的个人拉萨之旅丨丨故事之城</p>
+					</div>
+				</li>
+				<li style="background-image:url(images/4.jpg);width:789px">
+					<div>
+						<p class="p1">作者</br>:默默的墨墨</p>
+						<p class="p2">我的个人拉萨之旅丨丨故事之城</p>
+					</div>
+				</li>
+			</ul>
+		</div>
+		<script src="js/jquery.js"></script>
+		<script>
+			//alert($);//弹出jquery的代理对象$
+			//找到所有的li标签
+			$("#box ul li").hover(function(){//鼠标移上去实现什么功能
+				//$(this) 鼠标移动到哪个li上面就代表哪个li
+				//siblings()兄弟元素
+				//stop()停止上一次动画 开始下一次
+				//animate({"css属性":"属性值","css属性":"属性值"},1000,function(){})
+				$(this).stop().animate({"width":"789px"},1000).siblings().stop().animate({"width":"100px"},1000);
+			});
+		</script>
+	</body>
+</html>
